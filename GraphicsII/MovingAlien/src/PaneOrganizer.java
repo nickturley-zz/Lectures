@@ -22,8 +22,9 @@ public class PaneOrganizer {
 		Pane shapePane = new Pane();
 		shapePane.setPrefSize(400, 400);
 		_root.getChildren().add(shapePane);
-		_alien = new Alien(shapePane);
+		_alien = new Alien();
 		_alien.setLocation(50, 50);
+		shapePane.getChildren().addAll(_alien.getNodes());
 	}
 	
 	private void setUpButtons(){

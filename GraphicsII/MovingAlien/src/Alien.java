@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -9,14 +12,13 @@ public class Alien {
 	private Ellipse _leftEye;
 	private Ellipse _rightEye;
 	
-	public Alien(Pane pane){
+	public Alien(){
 		_face = new Ellipse(50, 50);
-		_face.setFill(Color.GREEN);
-		_leftEye = new Ellipse(10, 10);
+		_face.setFill(Color.LIGHTGREEN);
+		_leftEye = new Ellipse(10, 15);
 		_leftEye.setFill(Color.BLACK);
-		_rightEye = new Ellipse(10, 10);
+		_rightEye = new Ellipse(10, 15);
 		_rightEye.setFill(Color.BLACK);
-		pane.getChildren().addAll(_face, _leftEye, _rightEye);
 	}
 	
 	public void setLocation(double x, double y){
@@ -34,5 +36,13 @@ public class Alien {
 	
 	public double getY(){
 		return _face.getCenterY();
+	}
+	
+	public List<Node> getNodes(){
+		ArrayList<Node> nodes = new ArrayList<Node>();
+		nodes.add(_face);
+		nodes.add(_leftEye);
+		nodes.add(_rightEye);
+		return nodes; 
 	}
 }

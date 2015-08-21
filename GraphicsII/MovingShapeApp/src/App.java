@@ -23,7 +23,7 @@ public class App extends Application {
     @Override
     public void start(Stage primaryStage) {
         //outer stage setup
-        primaryStage.setTitle("Color Polygon");
+        primaryStage.setTitle("MovingShape");
         PaneOrganizer organizer = new PaneOrganizer();
         Scene scene = new Scene(organizer.toRoot(), 200, 200);
         primaryStage.setScene(scene );
