@@ -8,36 +8,40 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 
 public class PaneOrganizer {
-	private CheckerSquares[][] _rects;
-	private Pane _board;
+	private CheckerBoard _board;
 	private BorderPane _root;
+	private CheckerSquares[][] _rects; 
 	public PaneOrganizer(){
-        CheckerBoard org = new CheckerBoard();
-		_rects = org.getSquares();
-		_board = new Pane();
+		_root = new BorderPane();
 		HBox buttonPane = new HBox();
-	    Button button = new Button("Change Color!");
+        _board = new CheckerBoard();
+	    this.addSquares();
+		_rects = _board.getNodes();//gets array of graphical squares from the board 
+	}
+
+	private void setUpButtonPane(){
+		Button button = new Button("Change Color!");
 	    button.setOnAction(new ClickHandler());
 		buttonPane.getChildren().add(button);
 		buttonPane.setStyle("-fx-background-color: gray;");
 		buttonPane.setAlignment(Pos.CENTER);
-		_root = new BorderPane();
 		_root.setBottom(buttonPane);
-		_root.setTop(_board);
-		this.addSquares();
-		
 	}
-	public void addSquares(){
-		 for (int col=0; col< Constants.NUM_SQRS; col++){ //outer for loop through columns
+
+	private void setUpBoardPane(){
+		Pane boardPane = new Pane();
+		_root.setTop(boardPane);		
+		for (int col=0; col< Constants.NUM_SQRS; col++){ //outer for loop through columns
 	            for (int row=0; row < Constants.NUM_SQRS; row++){
-	            	_board.getChildren().addAll(_rects[col][row].toNode());	
+	            	boardPane.getChildren().addAll(_rects[col][row].getNode());	
 	            }
 		 }
-		
 	}
+
 	public Pane getRoot(){
 		return _root;
 	}
+
 	private class ClickHandler implements EventHandler<ActionEvent> {
 
 		@Override

@@ -20,7 +20,7 @@ public class CheckerBoard {
         
 	}
 
-	public CheckerSquares[][] getSquares(){
+	public CheckerSquares[][] getNodes(){
 		return _rects;
 	}
 

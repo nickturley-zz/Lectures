@@ -24,7 +24,7 @@ public class CheckerSquares {
         _otherColor = temp;
         _rect.setFill(_currentColor);
     }
-	public Rectangle toNode(){
+	public Rectangle getNode(){
 		return _rect;
 	}
 }
