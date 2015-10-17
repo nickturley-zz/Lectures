@@ -7,7 +7,7 @@ public class CheckerBoard {
         for (int col=0; col< Constants.NUM_SQRS; col++){ //outer for loop through columns
             for (int row=0; row < Constants.NUM_SQRS; row++){ //nested inner for loop through rows
                 CheckerSquares rect;
-                // every second square should be red
+                // every other square should be red
                 if (((row + col) % 2) == 0){
                 	rect = new CheckerSquares(Color.RED, Color.WHITE);
                 }else{  
@@ -20,7 +20,7 @@ public class CheckerBoard {
         
 	}
 
-	public CheckerSquares[][] getNodes(){
+	public CheckerSquares[][] getRectangles(){
 		return _rects;
 	}
 

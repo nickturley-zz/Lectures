@@ -14,7 +14,7 @@ public class PaneOrganizer {
 	public PaneOrganizer(){
 		_root = new BorderPane();
         _board = new CheckerBoard();
-        _rects = _board.getNodes();//gets array of graphical squares from the board 
+        _rects = _board.getRectangles();//gets array of graphical squares from the board 
 	    this.setUpBoardPane();
 	    this.setUpButtonPane();
 	}
@@ -46,9 +46,7 @@ public class PaneOrganizer {
 	private class ClickHandler implements EventHandler<ActionEvent> {
 
 		@Override
-		public void handle(ActionEvent arg0) {
-			// TODO Auto-generated method stub
-			
+		public void handle(ActionEvent arg0) {			
 			for (int col=0; col<Constants.NUM_SQRS; col++){
 				 for (int row=0; row <Constants.NUM_SQRS; row++){
 					 //local variable points to selected rect

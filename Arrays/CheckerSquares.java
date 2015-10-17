@@ -6,12 +6,12 @@ public class CheckerSquares {
     private Color _otherColor;
     private Rectangle _rect;
    
-	public CheckerSquares(Color tradColor, Color boldColor){
+	public CheckerSquare(Color primaryColor, Color secondaryColor){
 		_rect = new Rectangle();
 		_rect.setWidth(Constants.SQR_SIZE);
 		_rect.setHeight(Constants.SQR_SIZE);
-	    _currentColor = tradColor;
-	    _otherColor = boldColor;
+	    _currentColor = primaryColor;
+	    _otherColor = secondaryColor;
 	    _rect.setFill(_currentColor);
 	}
 	public void setLocation(int x, int y){
@@ -24,7 +24,7 @@ public class CheckerSquares {
         _otherColor = temp;
         _rect.setFill(_currentColor);
     }
-	public Rectangle getNode(){
+	public Node getNode(){
 		return _rect;
 	}
 }
