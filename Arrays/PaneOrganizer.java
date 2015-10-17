@@ -22,7 +22,6 @@ public class PaneOrganizer {
 	private void setUpButtonPane(){
 		HBox buttonPane = new HBox();
 		_root.setBottom(buttonPane);
-
 		Button button = new Button("Change Color!");
 	    button.setOnAction(new ClickHandler());
 		buttonPane.getChildren().add(button);
