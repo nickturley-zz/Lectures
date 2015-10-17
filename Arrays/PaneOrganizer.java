@@ -13,19 +13,21 @@ public class PaneOrganizer {
 	private CheckerSquares[][] _rects; 
 	public PaneOrganizer(){
 		_root = new BorderPane();
-		HBox buttonPane = new HBox();
         _board = new CheckerBoard();
-	    this.addSquares();
-		_rects = _board.getNodes();//gets array of graphical squares from the board 
+        _rects = _board.getNodes();//gets array of graphical squares from the board 
+	    this.setUpBoardPane();
+	    this.setUpButtonPane();
 	}
 
 	private void setUpButtonPane(){
+		HBox buttonPane = new HBox();
+		_root.setBottom(buttonPane);
+
 		Button button = new Button("Change Color!");
 	    button.setOnAction(new ClickHandler());
 		buttonPane.getChildren().add(button);
 		buttonPane.setStyle("-fx-background-color: gray;");
 		buttonPane.setAlignment(Pos.CENTER);
-		_root.setBottom(buttonPane);
 	}
 
 	private void setUpBoardPane(){
